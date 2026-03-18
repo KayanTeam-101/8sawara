@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import "tailwindcss";
+
+*{
+  font-family: "Lalezar", sans-serif;
+  font-style: normal;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    background: rgb(247, 244, 255);
+}
+h1, h2, h3, h4, h5, h6{
+     font-weight: 1000;
+
+}
+.show-first{
+    animation: showAnim 0.5s ease-in-out forwards;
+}
+.show-second{
+    animation: showAnim 1s ease-in-out forwards;
+}
+.show-third{
+    animation: showAnim 1.5s ease-in-out forwards;
+}
+.translate-y--20{
+    transform: translateY(calc(.5rem * -30));
+}
+@keyframes showAnim {
+    0%{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+
+    }
+}
+.navbar a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.navbar a.active{
+    color: rgb(153, 0, 255);
+}
+.navbar a.active::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(146, 146, 146, 0.5);
+    animation: activeAnim 0.5s ease-in-out forwards;
+}
+@keyframes activeAnim {
+    0%{
+        width: 0;
+        height: 0;
+        opacity: 0.5;
+        scale: 1;
+    }
+    100%{
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+        scale: 2;
+
+    }
+}

@@ -1,0 +1,76 @@
+import React from 'react'
+import { BsCalendarDateFill } from "react-icons/bs";
+
+const Table = () => {
+  // Function to generate array of day numbers (1, 2, 3... up to total days)
+  function calculateDays() {
+    const getMonthsCount: number = Number(localStorage.getItem("challengePeriod")) || 0; 
+    const NOD = getMonthsCount * 30;
+    const daysArray = [];
+    for (let i = 1; i <= NOD; i++) {
+      daysArray.push(i);
+    }
+    return daysArray;
+  }
+
+
+
+  // Alternative version if you want to track "completed" days
+  function getDayColorAlternative(day: number) {
+    // Get the current day of challenge (1-based)
+    const challengeStartTime: number = Number(localStorage.getItem("StartedAt")) || Date.now();
+    const today = new Date();
+    const startDate = new Date(challengeStartTime);
+    
+    const currentDayOfChallenge = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+    
+    // If this day is in the past of the challenge
+    if (day < currentDayOfChallenge) {
+      return "bg-indigo-400 opacity-40 text-white"; // Completed days
+    } 
+    // If this is today's challenge day
+    else if (day === currentDayOfChallenge) {
+      return "bg-indigo-500 shadow-md text-white"; // Current day
+    }else{
+      return "bg-gray-100 text-gray-500"; // Future days
+    }
+  }
+
+  return (
+    <div className='relative flex items-center flex-col w-full min-h-14 p-2 bg-white rounded-2xl border-indigo-50'>
+      <div className='w-full h-10 flex items-center justify-between border-b-2 border-gray-200 mb-2'>
+        <div className='flex items-center'>
+          <span className='font-black text-gray-500'>Challenge Progress</span>
+        </div>
+        <div className='flex items-center'>
+          <BsCalendarDateFill className='text-indigo-500 text-2xl' />
+        </div>
+      </div>
+      {/* End Header */}
+      <div className='w-full min-h-2.5 max-h-60 p-2 flex flex-wrap gap-2.5 overflow-y-scroll'>
+        {calculateDays().map((item) => (
+          <div 
+            key={item} 
+            className={`w-10 h-10 ${getDayColorAlternative(item)}  rounded-2xl flex items-center justify-center font-medium`}
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+      {/* Optional: Display current progress */}
+      <div className='mt-2 text-sm text-gray-600'>
+        {(() => {
+          const startTime = Number(localStorage.getItem("StartedAt")) || Date.now();
+          const startDate = new Date(startTime);
+          const today = new Date();
+          const daysSinceStart = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+          const totalDays = calculateDays().length;
+          
+          return `Day ${Math.min(daysSinceStart + 1, totalDays)} of ${totalDays}`;
+        })()}
+      </div>
+    </div>
+  )
+}
+
+export default Table
