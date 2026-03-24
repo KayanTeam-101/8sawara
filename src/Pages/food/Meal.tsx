@@ -36,7 +36,7 @@ const Meal = (props : any) => {
       <div 
       key={props.MealName + '-' + idx}  
       className='w-full p-3.5 bg-gray-100 rounded-lg text-md active:bg-indigo-100 active:text-indigo-600 cursor-pointer activeAnim'
-      onClick={e => handleDishClick(dish)}
+      onClick={() => handleDishClick(dish)}
       >
         {dish}
       </div>
