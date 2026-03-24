@@ -4,18 +4,6 @@ import Table from "./Components/Table"
 
 const Home = () => {
   const IsThere_A_Diet : any =localStorage.getItem('Diet');
-  if (localStorage.length > 3) {
-    localStorage.setItem('isFirstTime',"false")
-  }else{
-  localStorage.setItem("isFirstTime", "true");
-
-  }
-  if (!localStorage.getItem("StartedAT")) {
-    const currentDate = new Date();
-
-    localStorage.setItem("StartedAT", currentDate.getTime().toString());
-    
-  }
 
   let Advice ="the best way to get started is to quit talking and begin doing."
   return (

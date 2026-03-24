@@ -14,12 +14,13 @@ const Navbar = () => {
         <NavLink  to="me/food">
           <FaBowlFood />
         </NavLink>
-        <NavLink  to="/myStats">
-          <FaChartSimple />
-        </NavLink>
         <NavLink  to="/exercises">
           <FaPersonRunning />
         </NavLink>
+        <NavLink  to="/myStats">
+          <FaChartSimple />
+        </NavLink>
+        
     </div>
   )
 }

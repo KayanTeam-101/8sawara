@@ -52,7 +52,7 @@ const handleSave = () => {
     ...getData,
     [props.Meal]: [
       UpdatedFoods, // foods
-      UpdatedInfo      // nutrition info
+      [...props.Meal[1], ...UpdatedInfo]      // nutrition info
     ]
   };
 
