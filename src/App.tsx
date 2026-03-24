@@ -1,5 +1,6 @@
 import Navbar from './Components/layouts/Navbar';
 import FoodPage from './Pages/food/FoodPage';
+import ExerciseDay from './Pages/home/Components/ExcrsiceDay';
 import Home from './Pages/home/Home';
 import MakeADiet from './Pages/MKDiet/MakeADiet';
 import Welcome from './Pages/Welcome/Welcome'
@@ -14,6 +15,7 @@ function App() {
         <Route path="me/home" element={<Home />} />
         <Route path="me/food" element={<FoodPage />} />
         <Route path="MkADiet" element={<MakeADiet />} />
+        <Route path="/exercises" element={<ExerciseDay />} />
       </Routes>
       {!isFirstTime && <Navbar /> }
     </>
