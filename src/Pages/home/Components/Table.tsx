@@ -18,7 +18,7 @@ const Table = () => {
   // Alternative version if you want to track "completed" days
   function getDayColorAlternative(day: number) {
     // Get the current day of challenge (1-based)
-    const challengeStartTime: number = Number(localStorage.getItem("StartedAt")) || Date.now();
+    const challengeStartTime: number = Number(localStorage.getItem("StartedAt"));
     const today = new Date();
     const startDate = new Date(challengeStartTime);
     
@@ -60,7 +60,7 @@ const Table = () => {
       {/* Optional: Display current progress */}
       <div className='mt-2 text-sm text-gray-600'>
         {(() => {
-          const startTime = Number(localStorage.getItem("StartedAt")) || Date.now();
+          const startTime = Number(localStorage.getItem("StartedAt")) ;
           const startDate = new Date(startTime);
           const today = new Date();
           const daysSinceStart = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
