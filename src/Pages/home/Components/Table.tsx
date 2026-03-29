@@ -18,18 +18,20 @@ const Table = () => {
   // Alternative version if you want to track "completed" days
   function getDayColorAlternative(day: number) {
     // Get the current day of challenge (1-based)
-    const challengeStartTime: number = Number(localStorage.getItem("StartedAt"));
-    const today = new Date();
-    const startDate = new Date(challengeStartTime);
-    
-    const currentDayOfChallenge = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-    
+      const startTime = Number(localStorage.getItem("StartedAT"));
+          console.log("Start Time :" + startTime);
+          
+          const today = new Date();
+          const daysSinceStart = Math.floor((today.getTime() - startTime) / (60 * 60 * 24 *1000));
+
+          console.log("Days Since Start :"+ daysSinceStart );
+          
     // If this day is in the past of the challenge
-    if (day < currentDayOfChallenge) {
+    if (day < daysSinceStart) {
       return "bg-indigo-400 opacity-40 text-white"; // Completed days
     } 
     // If this is today's challenge day
-    else if (day === currentDayOfChallenge) {
+    else if (day === daysSinceStart) {
       return "bg-indigo-500 shadow-md text-white"; // Current day
     }else{
       return "bg-gray-100 text-gray-500"; // Future days
@@ -48,10 +50,10 @@ const Table = () => {
       </div>
       {/* End Header */}
       <div className='w-full min-h-2.5 max-h-60 p-2 flex flex-wrap gap-2.5 overflow-y-scroll'>
-        {calculateDays().map((item) => (
+        {calculateDays().map((item,idx) => (
           <div 
             key={item} 
-            className={`w-10 h-10 ${getDayColorAlternative(item)}  rounded-2xl flex items-center justify-center font-medium`}
+            className={`w-10 h-10 ${getDayColorAlternative(idx)}  rounded-2xl flex items-center justify-center font-medium`}
           >
             {item}
           </div>
@@ -60,10 +62,15 @@ const Table = () => {
       {/* Optional: Display current progress */}
       <div className='mt-2 text-sm text-gray-600'>
         {(() => {
-          const startTime = Number(localStorage.getItem("StartedAt")) ;
-          const startDate = new Date(startTime);
+          const startTime = Number(localStorage.getItem("StartedAT"));
+          console.log("Start Time :" + startTime);
+          
           const today = new Date();
-          const daysSinceStart = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+          const daysSinceStart = Math.floor((today.getTime() - startTime) / (60 * 60 * 24 *1000));
+
+          console.log("Days Since Start :"+ daysSinceStart );
+          
+          
           const totalDays = calculateDays().length;
           
           return `Day ${Math.min(daysSinceStart + 1, totalDays)} of ${totalDays}`;
