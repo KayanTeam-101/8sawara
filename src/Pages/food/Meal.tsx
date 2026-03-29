@@ -1,4 +1,5 @@
-import React from 'react'
+
+import { IoInformationCircle } from 'react-icons/io5';
 
 const Meal = (props : any) => {
   const getData: string | null = localStorage.getItem('Diet');
@@ -9,7 +10,7 @@ const Meal = (props : any) => {
     const FindDay = history.map((obj : any) => obj.date === CurrentDate ? obj : null);
     const UpdateMeals = [FindDay["meals"],dish];
     const NewData = history.date;
-    console.log(NewData);
+
     
   }
   const chooseIconsForMeal = (mealName: string) => {
@@ -35,10 +36,13 @@ const Meal = (props : any) => {
     {getData && JSON.parse(getData)[props.MealName][0].map((dish: string, idx: number) => (
       <div 
       key={props.MealName + '-' + idx}  
-      className='w-full p-3.5 bg-gray-100 rounded-lg text-md active:bg-indigo-100 active:text-indigo-600 cursor-pointer activeAnim'
+      className='flex justify-between w-full p-3.5 bg-gray-100 rounded-lg font-thin text-md active:bg-indigo-100 active:text-indigo-600 cursor-pointer activeAnim'
       onClick={() => handleDishClick(dish)}
       >
         {dish}
+        <div className='bg-white p-0.5 rounded-2xl '>
+          <IoInformationCircle className='text-2xl text-indigo-400' />
+        </div>
       </div>
     ))}
               <div className='relative top-3 w-full h-fit flex flex-row gap-1 .5 flex-wrap '>

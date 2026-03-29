@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsCalendarDateFill } from "react-icons/bs";
+import {BsFlagFill } from "react-icons/bs";
 
 const Table = () => {
   // Function to generate array of day numbers (1, 2, 3... up to total days)
@@ -42,10 +42,10 @@ const Table = () => {
     <div className='relative flex items-center flex-col w-full min-h-14 p-2 bg-white rounded-2xl border-indigo-50'>
       <div className='w-full h-10 flex items-center justify-between border-b-2 border-gray-200 mb-2'>
         <div className='flex items-center'>
-          <span className='font-black text-gray-500'>Challenge Progress</span>
+          <span className='font-black'>Trip progress</span>
         </div>
         <div className='flex items-center'>
-          <BsCalendarDateFill className='text-indigo-500 text-2xl' />
+          <BsFlagFill className=' text-2xl' />
         </div>
       </div>
       {/* End Header */}
@@ -53,7 +53,7 @@ const Table = () => {
         {calculateDays().map((item,idx) => (
           <div 
             key={item} 
-            className={`w-10 h-10 ${getDayColorAlternative(idx)}  rounded-2xl flex items-center justify-center font-medium`}
+            className={`w-10 h-10 select-none ${getDayColorAlternative(idx)}  rounded-2xl flex items-center justify-center font-medium`}
           >
             {item}
           </div>

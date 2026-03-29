@@ -14,14 +14,13 @@ type MealPlan = {
 }
 
 const MakeADiet: React.FC = () => {
-  if (localStorage.getItem('Diet') === null) {
-    localStorage.setItem('Diet', JSON.stringify({
-      Breakfast: [[], []],
-      Lunch: [[], []],
-      Snacks: [[], []],
-      Dinner: [[], []]
-    }));
-  }
+  
+  localStorage.setItem('Diet', JSON.stringify({
+    Breakfast: [[], []],
+    Lunch: [[], []],
+    Snacks: [[], []],
+    Dinner: [[], []]
+  }));
 
   const mealPlan: MealPlan = JSON.parse(localStorage.getItem('Diet') || '{}') || {
       Breakfast: [[], []],
