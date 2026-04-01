@@ -15,7 +15,7 @@ const Welcome : React.FC= () => {
   const [IsDisabled, setIsDisabled] = useState(false);
  
   let handleClick = () => {
-    if (turn === 9) {
+    if (turn === 10) {
       setIsDisabled(true);
       localStorage.setItem("isFirstTime", "false");
       window.location.href = "/me/home";
@@ -50,6 +50,8 @@ const Welcome : React.FC= () => {
             case 8:
             return <SatisfactionRate />;
                case 9:
+            return <SelectGender />;
+             case 10:
             return <FinalSection />;
         }
       })()}
@@ -63,6 +65,7 @@ const Welcome : React.FC= () => {
         <div className={turn === 7 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
         <div className={turn === 8 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
         <div className={turn === 9 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 10 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
       </div>
       <button disabled={IsDisabled} className={`absolute w-11/12 h-16 bottom-4  bg-white ${IsDisabled ? "text-gray-400 border-gray-200" : "text-indigo-400 border-b-indigo-400 shadow-2xs shadow-indigo-500"} border-2 rounded-3xl font-extrabold active:bg-indigo-500 active:text-white `} onClick={handleClick}>التالي</button>
     </div>

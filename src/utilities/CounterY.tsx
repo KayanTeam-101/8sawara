@@ -76,12 +76,15 @@ const CounterY = ({
 
     const snapped =
       indexFromOffset(offset) * ITEM_HEIGHT;
+      onChange?.(finalArr[indexFromOffset(snapped)]);
 
     lastOffset.current = clamp(snapped);
     setOffset(clamp(snapped));
 
-    onChange?.(finalArr[indexFromOffset(snapped)]);
   };
+  const snapped =
+      indexFromOffset(offset) * ITEM_HEIGHT;
+      onChange?.(finalArr[indexFromOffset(snapped)]);
 
   return (
     <div
@@ -116,25 +119,25 @@ const CounterY = ({
       >
         {finalArr.map((num, i) => {
           const diff = i * ITEM_HEIGHT - offset;
-          const rotateX = diff / 6;
-          const rotateY = (diff / ITEM_HEIGHT) * 2;
+          const rotateX = diff / 3.5;
+          const rotateY = (diff / ITEM_HEIGHT) * 1;
           const opacity =
             1 - Math.min(Math.abs(diff) / (ITEM_HEIGHT * 3), 0.9);
 
           return (
             <div
               key={num}
-              className={`relative  flex items-center justify-center font-bold ${cfg.font}`}
+              className={`relative  flex items-center perspective-dramatic  justify-center font-bold ${cfg.font}`}
               style={{
                 height: ITEM_HEIGHT,
                 opacity,
                 transform: `
-                  scale(${.1 + opacity})
+                  scale(${.2 + opacity})
                   rotateX(${rotateX}deg)
                   rotateY(${rotateY}deg)
-                  translateZ(${opacity * 50}px)
+                  translateZ(${opacity * 150}px)
                 `,
-                color: opacity > 0.9 ? "#4f46e5" : "#6366f1",
+                color: opacity > .7 ? "#4f46e5" : "#4f46e584",
               }}
             >
               {num}

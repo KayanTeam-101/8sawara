@@ -5,18 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { registerSW } from 'virtual:pwa-register'
 
-  if (localStorage.length > 3) {
-    localStorage.setItem('isFirstTime',"false")
-  }else{
-  localStorage.setItem("isFirstTime", "true");
-
-  }
-  if (!localStorage.getItem("StartedAT")) {
-    const currentDate = new Date();
-
-    localStorage.setItem("StartedAT", currentDate.getTime().toString());
-    
-  }
+ 
   if(!localStorage.getItem("History")){
     const History: any = [];
     const CreateHistory = () => {

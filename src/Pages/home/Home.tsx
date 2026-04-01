@@ -3,6 +3,15 @@ import Table from "./Components/Table"
         import { FaBowlFood, FaCookieBite } from "react-icons/fa6";
 
 const Home = () => {
+   if (!localStorage.getItem("StartedAT")) {
+    const currentDate = new Date();
+
+    localStorage.setItem("StartedAT", currentDate.getTime().toString());
+    
+  }
+  if (localStorage.length > 9) {
+  localStorage.setItem("isFirstTime", "true");
+  }else{localStorage.setItem('isFirstTime','')}
   const IsThere_A_Diet : any =localStorage.getItem('Diet');
 
   let Advice ="the best way to get started is to quit talking and begin doing."
