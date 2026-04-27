@@ -127,15 +127,15 @@ const CounterY = ({
           return (
             <div
               key={num}
-              className={`relative  flex items-center perspective-dramatic  justify-center font-bold ${cfg.font}`}
+              className={`relative  flex items-center perspective-distant  justify-center font-black ${cfg.font}`}
               style={{
                 height: ITEM_HEIGHT,
                 opacity,
                 transform: `
-                  scale(${.2 + opacity})
-                  rotateX(${rotateX}deg)
+                  scale(${.1 + opacity})
+                  rotateX(${rotateX * 1.6}deg)
                   rotateY(${rotateY}deg)
-                  translateZ(${opacity * 150}px)
+                  translateZ(${opacity * 50}px)
                 `,
                 color: opacity > .7 ? "#4f46e5" : "#4f46e584",
               }}

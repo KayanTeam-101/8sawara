@@ -9,9 +9,9 @@ const Home = () => {
     localStorage.setItem("StartedAT", currentDate.getTime().toString());
     
   }
-  if (localStorage.length > 9) {
+  if (localStorage.length < 8) {
   localStorage.setItem("isFirstTime", "true");
-  }else{localStorage.setItem('isFirstTime','')}
+  }else{localStorage.setItem('isFirstTime','false')}
   const IsThere_A_Diet : any =localStorage.getItem('Diet');
 
   let Advice ="the best way to get started is to quit talking and begin doing."

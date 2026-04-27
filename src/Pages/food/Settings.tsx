@@ -5,9 +5,10 @@ import { RiResetRightFill } from "react-icons/ri";
 
 const Settings = () => {
     const SuringToResetADiet = () =>{
-        const Sure = confirm("YOU WILL DELETE YOUR DITE IF YOU CLICK AT 'OK' AND CREATE NEW ONE");
+        const Sure = confirm("YOU WILL DELETE YOUR DIET IF YOU CLICK AT 'OK' AND CREATE NEW ONE");
         if (Sure) {
-            location.href ='/MkADiet'
+            localStorage.removeItem("Diet");
+            window.location.reload();
         }else{
             return false;
         }

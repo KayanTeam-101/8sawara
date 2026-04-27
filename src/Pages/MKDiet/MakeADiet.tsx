@@ -1,11 +1,13 @@
 import React,{useState} from 'react'
 import { BiCookie } from 'react-icons/bi';
 import { BsMoon, BsPlusCircleFill, BsSave, BsSave2Fill, BsSun } from 'react-icons/bs';
-import { FaBowlFood } from 'react-icons/fa6';
+import { FaBowlFood, FaFire } from 'react-icons/fa6';
 import { HiOutlineChevronUpDown } from 'react-icons/hi2';
 import { PiPlus } from 'react-icons/pi';
 import AdditionPage from './AdditionPage';
 import { useNavigate } from "react-router-dom";
+import { GiChickenOven } from 'react-icons/gi';
+import { MdDelete } from 'react-icons/md';
 type MealPlan = {
   Breakfast: string[][],
   Lunch: string[][],
@@ -14,8 +16,14 @@ type MealPlan = {
 }
 
 const MakeADiet: React.FC = () => {
-  
-
+  if (localStorage.getItem('Diet') === null) {
+    localStorage.setItem('Diet', JSON.stringify({
+      Breakfast: [[], []],
+      Lunch: [[], []],
+      Snacks: [[], []],
+      Dinner: [[], []]
+    }));
+  }
 
   const mealPlan: MealPlan = JSON.parse(localStorage.getItem('Diet') || '{}') || {
       Breakfast: [[], []],
@@ -108,8 +116,8 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
     return Object.values(mealPlan).reduce((acc, curr: any) => acc + curr[1][1], 0);
   };
   return (
-<div className='relative min-h-screen w-full p-5 flex flex-col gap-5 items-center show-first'>
-        <div className='w-full absolute top-0 left-0 h-44 bg-linear-to-b from-indigo-600 via-purple-300 to-transparent rounded-b-3xl '>
+<div className='relative min-h-screen w-full p-5 flex flex-col gap-5 justify-start show-first'>
+        <div className='w-full absolute top-0 left-0 h-44 bg-linear-to-b from-indigo-600  via-sky-300 to-transparent rounded-b-3xl '>
         <h1 className='text-indigo-100 text-4xl font-bold text-center mt-5'>Make Your Own Diet</h1>
       </div>
 
@@ -120,10 +128,14 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
         <div>Height : <span>{height} CM</span></div>
         <div>Age : <span>{age} Years</span></div>
         <div>Challenge Period : <span>{ChallengePeriod} Month</span></div>
-        <div>Cal in meals: <span>{calcAllCalories()} kcal</span></div>
-        <div>Protein in meals: <span>{calcAllProtein()} g</span></div>
+{ !Number.isNaN(calcAllCalories()) && (
+    <div>Cal in meals: <span>{calcAllCalories()} kcal</span></div>
+)}
+{ !Number.isNaN(calcAllProtein()) && (
+    <div>Protein in meals: <span>{calcAllProtein()} g</span></div>
+)}
       </div>
-
+    <div className='relative  flex flex-row w-fit top-20 bg-red-400 border-rose-100 border-4 outline-4 outline-red-50 shadow-red-200 shadow-2xl text-black font-black p-2.5 rounded-xl'>Reset Diet <MdDelete /></div>
       {/* Meal Plans */}
       {
         (Object.keys(mealPlan) as Array<keyof MealPlan>).map((meal) => (
@@ -134,7 +146,7 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
   key={meal}
 >
             <div className="w-full h-12 hover:cursor-pointer flex flex-row justify-between items-center p-2 text-2xl" onClick={e => ToggleWindow(e)}>
-              <h1 className='flex flex-row gap-3 text-indigo-500'>
+              <h1 className='flex flex-row gap-3 text-gray-500'>
                 {meal}
                 {meal === 'Breakfast' && <BsSun />} 
                 {meal === 'Lunch' && <FaBowlFood />}
@@ -164,8 +176,12 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
         {/* SetInformations */}
               <div className='relative top-3 w-full h-fit flex flex-row gap-0 .5 flex-wrap '>
                   {mealPlan[meal][1].map((info, idx) => (
-                  <div key={meal + '-info-' + idx} className={`flex w-fit p-2.5 m-0.5 ${idx === 0 ? 'border-teal-300' : 'border-red-300'} ${idx === 2 ? 'border-orange-300' : ''} border-2 bg-gray-100 rounded-lg  gap-1.5 text-md text-black cursor-pointer activeAnim`}>
-                    {idx === 0 ? `Calories: ${Number(info).toFixed(1)} kcal` : ``}
+                  <div key={meal + '-info-' + idx} className={`flex w-fit p-2.5 font-medium  bg-gray-50 rounded-2xl  gap-1.5 text-md text-black cursor-pointer activeAnim`}>
+                  {idx ===0 ? ( <div className='flex flex-row gap-1.5'>
+                                          
+                                          Calories: {Number(info).toFixed(1)}
+                    <FaFire className={`text-md  text-orange-400`} />
+                    </div>) : ``}
                     {idx === 1 ? `Proteins: ${Number(info).toFixed(1)} g` : ``}
                     {idx === 2 ? `Vitamins: ${info}` : ``}
 
