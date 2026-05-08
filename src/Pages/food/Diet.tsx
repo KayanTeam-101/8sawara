@@ -26,7 +26,7 @@ console.log(convertToObj);
         <div className="text-2xl flex flex-row ">My Diet <FaBowlFood /></div>
  <div className='flex flex-row gap-2'>
          <div onClick={() =>{SetSettingsOpened(() => true) }} className="bg-gray-100 text-md flex items-center cursor-pointer flex-row  gap-2 mb-5   p-2 rounded-4xl ">Settings <VscSettings /></div>
-        <div onClick={e => window.location.href="/me/history"} className="bg-gray-100 text-md flex items-center cursor-pointer flex-row  gap-2 mb-5   p-2 rounded-4xl ">History <FaClock /></div>
+        <div onClick={() => window.location.href="/me/history"} className="bg-gray-100 text-md flex items-center cursor-pointer flex-row  gap-2 mb-5   p-2 rounded-4xl ">History <FaClock /></div>
    
  </div>
     </div>
