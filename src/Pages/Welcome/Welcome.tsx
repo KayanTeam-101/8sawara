@@ -17,7 +17,6 @@ const Welcome : React.FC= () => {
   let handleClick = () => {
     if (turn === 10) {
       setIsDisabled(true);
-      localStorage.setItem("isFirstTime", "false");
       window.location.href = "/me/home";
       return;
     }
