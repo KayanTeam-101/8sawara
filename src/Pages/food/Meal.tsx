@@ -5,7 +5,17 @@ import { GiBiceps } from "react-icons/gi";
 
 const Meal = (props: any) => {
   const getData: string | null = localStorage.getItem("Diet");
+  const History = JSON.parse(localStorage.getItem("History") || "{}");
+  const FoodInfo_s = JSON.parse(localStorage.getItem("FoodInfo_s") || "{}");
 
+const IsEaten = (dish: string, meal: string): boolean => {
+  const today = new Date();
+  const currentDate = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
+
+  const mealDishes = History[currentDate]?.meals?.[meal];
+  console.log(mealDishes)
+  return Array.isArray(mealDishes) ? mealDishes.includes(dish) : false;
+};
   const chooseIconsForMeal = (mealName: string) => {
     switch (mealName) {
       case "Breakfast":
@@ -43,18 +53,29 @@ const Meal = (props: any) => {
               <button
                 key={props.MealName + "-" + idx}
                 onClick={() => Eaten(dish, props.MealName)}
-                className="group relative flex items-center justify-between p-4 rounded-2xl border border-indigo-100 bg-gradient-to-r from-green-50 to-indigo-50 active:scale-[0.98] transition-all duration-200 hover:shadow-md hover:border-indigo-300"
+                className={`group relative flex items-center justify-between p-4 rounded-2xl  ${ IsEaten(dish,props.MealName) ? "bg-green-50 text-green-500 border-green-400 border-2 font-extrabold" :("bg-gradient-to-r from-green-50 to-indigo-50 hover:border-indigo-300 border border-indigo-100")} active:scale-[0.98] transition-all duration-200 hover:shadow-md `}
               >
-                <span className="text-md font-medium text-gray-700 group-hover:text-indigo-700">
+                <span className="text-md   group-hover:text-indigo-700">
+<div className="mb-2">
                   {dish}
+
+</div>
+                  <div className="absolute bottom-1.5 text-sm opacity-60 ">
+                                   {
+    FoodInfo_s?.find(
+      (e: [string, string, number]) =>{
+        console.log(e[0], e[1],e[2]);
+        
+      return  e[1] === dish && e[0] === props.MealName
+      }
+    )?.[2]
+  } غرام
+                                </div>
                 </span>
                 <div className="bg-white p-1.5 rounded-full shadow-sm group-hover:bg-indigo-100 transition-colors">
                   <IoInformationCircle className="text-xl text-gray-400 group-hover:text-indigo-500" />
                 </div>
-                {/* subtle double‑click indicator */}
-                <span className="absolute top-1 right-1 text-[0.6rem] text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                  x2
-                </span>
+           
               </button>
             )
           )}
@@ -73,22 +94,22 @@ const Meal = (props: any) => {
                     ? { background: "linear-gradient(135deg, #fff3c755, #fde68a55)", color: "#92400e" }
                     : idx === 1
                     ? { background: "linear-gradient(135deg, #ccfbf155, #99f6e455)", color: "#115e59" }
-                    : { background: "linear-gradient(135deg, #e0ecff55, #c7d2fe55)", color: "#3730a3" }
+                    : { background: "linear-gradient(135deg, #00f77f85,#0077ff55)", color: "#000" }
                 }
               >
                 {idx === 0 && (
                   <>
                     <FaFire className="text-base text-orange-500" />
-                    Calories: {Number(info).toFixed(1)}
+                    السعرات الحرارية: {Number(info).toFixed(1)}
                   </>
                 )}
                 {idx === 1 && (
                   <>
                     <GiBiceps className="text-base text-teal-500" />
-                    Protiens: {Number(info).toFixed(1)}
+                    البروتين: {Number(info).toFixed(1)}
                   </>
                 )}
-                {idx === 2 && `Vitamins: ${info}`}
+                {idx === 2 && `الفيتامين: ${info}`}
               </div>
             )
           )}

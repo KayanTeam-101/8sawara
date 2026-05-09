@@ -6,18 +6,23 @@ import { FaPersonRunning } from "react-icons/fa6";
 import { FaBowlFood } from "react-icons/fa6";
 
 const Navbar = () => {
+  const vebrate = () =>{
+    if (navigator.vibrate) {
+      navigator.vibrate(100); // Vibrate for 100 milliseconds
+    }
+  }
   return (
     <div className="navbar overflow-hidden fixed bottom-0 left-0 right-0 grid grid-cols-4 items-center h-16 backdrop-blur-[20px] bg-white/30 border-t  border-gray-200 text-2xl text-indigo-950">
-        <NavLink  to="me/home">
+        <NavLink onClick={() => vebrate()}  to="me/home">
           <GoHomeFill />
         </NavLink>
-        <NavLink  to="me/food">
+        <NavLink onClick={() => vebrate()}  to="me/food">
           <FaBowlFood />
         </NavLink>
-        <NavLink  to="/exercises">
+        <NavLink onClick={() => vebrate()}  to="/exercises">
           <FaPersonRunning />
         </NavLink>
-        <NavLink  to="/myStats">
+        <NavLink onClick={() => vebrate()}  to="/myStats">
           <FaChartSimple />
         </NavLink>
         

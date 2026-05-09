@@ -18,9 +18,9 @@
     return (
         <div className=' h-11/12 show-first flex items-center justify-items-normal flex-col  ' >
            <div>
-             <h2 className='text-4xl relative top-5 text-indigo-400 font-extrabold mb-4 text-center '> ايه الايام بتاع الجم<span className='text-indigo-500'>؟</span></h2>
-            <h4 className='text-md text-gray-500'>إختياري مش ضروري</h4>
-            <h4 className='text-md text-gray-500'>إضغط علي التالي بدون اختيار ولا يوم لو تمارينك في البيت</h4>
+             <h2 className='text-4xl relative top-5 text-indigo-400 font-extrabold mb-4 text-center '> إيه ايام  الجم<span className='text-indigo-500 '>؟</span></h2>
+            <h4 className='text-sm text-gray-500'>إختياري مش ضروري</h4>
+            <h4 className='text-[11px] text-gray-500'>إضغط علي التالي بدون اختيار ولا يوم لو تمارينك في البيت</h4>
            </div>
             <div className='relative top-5 min-w-0 max-w-11/12 min-h-20  rounded-4xl  flex items-center  flex-wrap text-indigo-600 font-semibold text-lg p-2 gap-1.5  '>
      {SelectedDays.length === 0 ? <p className='text-indigo-500 text-xl'> ...</p> : SelectedDays.map((day,i) => (

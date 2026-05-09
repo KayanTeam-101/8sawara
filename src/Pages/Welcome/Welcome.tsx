@@ -9,6 +9,7 @@ import SelectDays from "./Components/SelectDays";
 import SelectGender from "./Components/SelectGender";
 import FinalSection from "./Components/FinalSection";
 import ChPreiod from "./Components/ChPreiod";
+import S_Goals from "./Components/SetGoals";
   
 const Welcome : React.FC= () => {
   const [turn, setTurn] = useState(1);
@@ -51,24 +52,27 @@ const Welcome : React.FC= () => {
             case 7:
             return <SelectDays />;
             case 8:
-            return <SatisfactionRate />;
-               case 9:
+            return <S_Goals />;
+                 case 9:
             return <SelectGender />;
-             case 10:
+               case 10:
+            return <SatisfactionRate />;
+             case 11:
             return <FinalSection />;
         }
       })()}
       <div className="absolute bottom-24 duration-1000 flex items-center justify-around flex-row gap-1 p-1 text-center min-w-5 rounded-2xl  h-5 bg-gray-50 ">
-        <div className={turn === 1 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm  "}></div>
-        <div className={turn === 2 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
-        <div className={turn === 3 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
-        <div className={turn === 4 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
-        <div className={turn === 5 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
-        <div className={turn === 6 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
-        <div className={turn === 7 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
-        <div className={turn === 8 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
-        <div className={turn === 9 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
-        <div className={turn === 10 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 1 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm  "}></div>
+        <div className={turn === 2 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 3 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 4 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 5 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 6 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 7 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 8 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 9 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500  delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 10 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500 delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
+        <div className={turn === 11 ? "w-10 h-3 bg-indigo-400  rounded-3xl shadow-2xl shadow-purple-500 delay-500" : "w-2 h-2.5 bg-gray-200 rounded-sm"}></div>
       </div>
       <button disabled={IsDisabled} className={`absolute w-11/12 h-16 bottom-4  bg-white ${IsDisabled ? "text-gray-400 border-gray-200" : "text-indigo-400 border-b-indigo-400 shadow-2xs shadow-indigo-500"} border-2 rounded-3xl font-extrabold active:bg-indigo-500 active:text-white `} onClick={handleClick}>التالي</button>
     </div>

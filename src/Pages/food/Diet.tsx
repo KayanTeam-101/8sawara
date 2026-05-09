@@ -3,6 +3,7 @@ import { FaBowlFood, FaClock } from 'react-icons/fa6'
 import { VscSettings } from 'react-icons/vsc'
 import React, { useState } from 'react'
 import Settings from './Settings';
+import { BiCalendarAlt } from 'react-icons/bi';
 type MealPlan = {
   Breakfast: string[]
   Lunch: string[]
@@ -23,10 +24,10 @@ console.log(convertToObj);
   return (
     <div className=''>
       <div className="relative w-full min-h-14 flex flex-row justify-between">
-        <div className="text-2xl flex flex-row ">My Diet <FaBowlFood /></div>
+        <div className="text-xl  flex flex-row ">النظام الغذائي <FaBowlFood /></div>
  <div className='flex flex-row gap-2'>
-         <div onClick={() =>{SetSettingsOpened(() => true) }} className="bg-gray-100 text-md flex items-center cursor-pointer flex-row  gap-2 mb-5   p-2 rounded-4xl ">Settings <VscSettings /></div>
-        <div onClick={() => window.location.href="/me/history"} className="bg-gray-100 text-md flex items-center cursor-pointer flex-row  gap-2 mb-5   p-2 rounded-4xl ">History <FaClock /></div>
+         <div onClick={() =>{SetSettingsOpened(() => true) }} className="bg-gray-100 text-md flex items-center cursor-pointer flex-row  gap-2 mb-5   p-2 rounded-4xl ">الاعدادات <VscSettings /></div>
+        <div onClick={() => window.location.href="/me/history"} className="bg-gray-100 text-md flex items-center cursor-pointer flex-row  gap-2 mb-5   p-2 rounded-4xl ">التاريخ <BiCalendarAlt /></div>
    
  </div>
     </div>
