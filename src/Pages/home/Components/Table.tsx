@@ -34,7 +34,7 @@ const Table = () => {
     else if (day === daysSinceStart) {
       return "bg-indigo-500 shadow-md text-white"; // Current day
     }else{
-      return "bg-gray-100 text-gray-500"; // Future days
+      return " text-gray-500"; // Future days
     }
   }
 
@@ -49,11 +49,11 @@ const Table = () => {
         </div>
       </div>
       {/* End Header */}
-      <div className='w-full min-h-2.5 max-h-60 p-2 flex flex-wrap gap-2.5 overflow-y-scroll'>
+      <div className='w-full min-h-2.5 max-h-60 p-2 flex flex-wrap gap-3.5 overflow-y-scroll'>
         {calculateDays().map((item,idx) => (
           <div 
             key={item} 
-            className={`w-10 h-10 select-none ${getDayColorAlternative(idx)}  rounded-2xl flex items-center justify-center font-medium`}
+            className={`w-10 h-10 select-none ${getDayColorAlternative(idx)}  rounded-full  flex items-center justify-center font-blod`}
           >
             {item}
           </div>

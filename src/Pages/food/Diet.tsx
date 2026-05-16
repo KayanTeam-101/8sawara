@@ -82,8 +82,8 @@ console.log(`Checking calories for ${foodName}:`, food?.calForOneKilo);
   }, [])
 
   return (
-    <div>
-      <div className="relative w-full min-h-14 flex flex-row justify-between">
+    <div className='show-first '>
+      <div className="relative w-full min-h-14 flex flex-row justify-between ">
         <div className="text-xl flex flex-row">
           <FaBowlFood />
         </div>
@@ -108,17 +108,17 @@ console.log(`Checking calories for ${foodName}:`, food?.calForOneKilo);
       </div>
 
       {/* Meals Section */}
-      <div className="flex gap-4 flex-col">
-        <div className='p-1 rounded-xl bg-gradient-to-r show-first from-orange-50 to-yellow-50 border border-orange-200 text-orange-700 font-medium w-max flex items-center gap-2'>
-          السعرات الحرارية المتناولة اليوم:
-          <div className="font-bold text-lg flex flex-row gap-1 items-center">
+      <div className="flex gap-4 flex-col ">
+      <div className='grid grid-cols-2 h-32 w-full rounded-2xl overflow-hidden'>
+        <div className="font-bold text-2xl gap-2  flex justify-center  items-center">
             {eatenCalories} <FaFire className='text-orange-500 mb-1'/>
-          </div>
        
         </div>
-         <div className='p-1 rounded-xl bg-gradient-to-b show-first from-white to-gray-200 border border-slate-200  font-medium w-max flex items-center gap-2'>
+         <div className='p-1  bg-gradient-to-b    font-medium w-max flex flex-col justify-center items-center gap-2'>
 اكلت طعام غير مجدول <GrAddCircle className='text-gray-500'  />
 </div>
+<div className='absolute left-1/2 top-30 translate-x-3 w-1 h-16 bg-gray-200 rounded-2xl'></div>
+      </div>
 <div className={undefined}></div>
         {convertToObj &&
           (Object.keys(convertToObj) as Array<keyof MealPlan>).map(

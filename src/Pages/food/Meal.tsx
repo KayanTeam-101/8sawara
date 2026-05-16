@@ -35,19 +35,29 @@ useEffect(() => {
         return "🍽️";
     }
   };
+  const ChooseNameOfMealInArabic=(mealName:string)=>{
+    switch (mealName) {
+      case "Breakfast":
+        return "الفطور";
+      case "Lunch":
+        return "الغداء";
+      case "Snacks":
+        return "الوجبات الخفيفة";
+      case "Dinner":
+        return "العشاء";
+      default:
+        return mealName;
+    }
+  }
 
   return (
-    <div className="relative bg-white/70 backdrop-blur-lg border border-white/50 show-third shadow-xl rounded-3xl p-6 space-y-6 transition-all hover:shadow-2xl">
+    <div className="relative bg-white/70 backdrop-blur-lg border border-white/50  shadow-xl rounded-3xl p-6 space-y-6 transition-all hover:shadow-2xl">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-          {props.MealName}
+          {ChooseNameOfMealInArabic(props.MealName)}
           <span className="text-2xl">{chooseIconsForMeal(props.MealName)}</span>
         </h1>
-        <div className="bg-gray-100 text-gray-500 text-xs px-3 py-1 rounded-full flex items-center gap-1">
-          <IoInformationCircle className="text-base" />
-          <span className="text-[0.7rem]">اضغط مرتان للتنفيذ</span>
-        </div>
       </div>
 
       {/* Dish Cards */}

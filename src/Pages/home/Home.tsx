@@ -1,7 +1,8 @@
 import { GoHomeFill } from "react-icons/go";
 import ExerciseDay from "./Components/ExcrsiceDay";
 import Table from "./Components/Table"
-        import { FaBowlFood, FaCookieBite } from "react-icons/fa6";
+        import { FaBowlFood, FaCookieBite, FaFire } from "react-icons/fa6";
+import { BiInfoCircle } from "react-icons/bi";
 
 const Home = () => {
    if (!localStorage.getItem("StartedAT")) {
@@ -17,16 +18,27 @@ const Home = () => {
 
   let Advice ="قليلُ مستمر خيرُ من كثيرٍ منقطع"
   return (
-    <div className="relative min-h-screen w-screen overflow-hidden p-5 flex flex-col gap-5">
-
+    <div className="relative min-h-screen w-screen overflow-hidden p-5 flex flex-col gap-5 show-first">
       <div className="relative w-full min-h-14 flex flex-col gap-3">
         <div className="text-2xl  "><GoHomeFill /></div>
         <div className="w-full rounded-2xl mb-2 p-5 shadow-sm bg-white flex flex-row gap-2">
       <FaCookieBite className="text-2xl text-indigo-500 " />
           <p className="font-light text-md show-first">{Advice}</p>
         </div>
+         <div className="mt-6">
+          <div className="rounded-full  shadow-2xl bg-linear-to-r from-orange-400 to-yellow-300 text-white text-shadow-lg text-xl font-black tracking-tight flex flex-row justify-between items-center p-5 ">
+            <p className="flex flex-row gap-1.5 ">ألايام النشطة <BiInfoCircle /></p>
+            <p className="flex flex-row">
+                {9} <FaFire />
+
+            </p>
+          </div>
+
+       
+        </div>
+
       {!IsThere_A_Diet &&  <a href="/me/food">
-         <div className="w-full rounded-2xl mb-2 p-5 shadow-sm bg-white flex flex-row gap-2">
+         <div className="w-full rounded-2xl mb-2 p-5 shadow-sm bg-white flex flex-row gap-2 outline-swealing">
       <FaBowlFood className="text-2xl text-indigo-500 " />
           <p className="font-light text-md show-first">دعنا نصنع أفضل نظام غذائي!</p>
         </div>
