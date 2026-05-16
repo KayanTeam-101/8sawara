@@ -58,7 +58,7 @@ useEffect(() => {
 
         <Route path="/me/home" element={<Home />} />
         <Route path="/me/food" element={<FoodPage />} />
-        <Route path="/mk-a-diet" element={<MakeADiet />} />
+        <Route path="/mkAdiet" element={<MakeADiet />} />
         <Route path="/exercises" element={<Exersice />} />
 
         <Route
