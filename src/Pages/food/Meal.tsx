@@ -68,9 +68,9 @@ useEffect(() => {
               <button
                 key={props.MealName + "-" + idx}
                 onClick={() => Eaten(dish, props.MealName)}
-                className={`group relative flex items-center justify-between p-4 rounded-2xl  ${ IsEaten(dish,props.MealName) ? "bg-green-50 text-green-500 border-green-400 border-2 font-extrabold" :("bg-gradient-to-r from-green-50 to-indigo-50 hover:border-indigo-300 border border-indigo-100")} active:scale-[0.98] transition-all duration-200 hover:shadow-md `}
+                className={`group relative flex items-center justify-between p-4 rounded-2xl  ${ IsEaten(dish,props.MealName) ? "bg-green-50 text-green-500 border-green-400 border-2 font-extrabold" :("bg-gradient-to-r from-green-50 to-sky-50 hover:border-sky-300 border border-sky-100")} active:scale-[0.98] transition-all duration-200 hover:shadow-md `}
               >
-                <span className="text-md   group-hover:text-indigo-700">
+                <span className="text-md   group-hover:text-sky-700">
 <div className="mb-2">
                   {dish}
 
@@ -87,8 +87,8 @@ useEffect(() => {
   } غرام
                                 </div>
                 </span>
-                <div className="bg-white p-1.5 rounded-full shadow-sm group-hover:bg-indigo-100 transition-colors">
-                  <IoInformationCircle className="text-xl text-gray-400 group-hover:text-indigo-500" />
+                <div className="bg-white p-1.5 rounded-full shadow-sm group-hover:bg-sky-100 transition-colors">
+                  <IoInformationCircle className="text-xl text-gray-400 group-hover:text-sky-500" />
                 </div>
            
               </button>

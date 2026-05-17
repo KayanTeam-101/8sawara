@@ -136,8 +136,8 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
   };
   return (
 <div className='relative min-h-screen w-full p-5 flex flex-col gap-5 justify-start show-first mb-20'>
-        <div className='w-full absolute top-0 left-0 h-44 bg-linear-to-b from-indigo-600  via-sky-300 to-transparent '>
-        <h1 className='text-indigo-100 text-4xl font-bold text-center mt-5'>اصنع نظامك الغذائي</h1>
+        <div className='w-full absolute top-0 left-0 h-44 bg-linear-to-b from-blue-600  via-sky-300 to-transparent '>
+        <h1 className='text-blue-100 text-4xl font-bold text-center mt-5'>اصنع نظامك الغذائي</h1>
       </div>
 
       <div className='relative top-20 w-full h-fit grid grid-cols-2 gap-2 text-gray-700 '>
@@ -158,7 +158,7 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
         (Object.keys(mealPlan) as Array<keyof MealPlan>).map((meal) => (
       <div
   aria-details="mainContainer"
-  className="container relative top-26  w-full overflow-hidden bg-white active:bg-gray-200 active:opacity-60 border-r-indigo-500 border-r-4 px-5 py-1 rounded-xl transition-all duration-500 ease-in-out"
+  className="container relative top-26  w-full overflow-hidden bg-white active:bg-gray-200 active:opacity-60 border-r-blue-500 border-r-4 px-5 py-1 rounded-xl transition-all duration-500 ease-in-out"
   style={{ height: '56px' }}   // initial closed height
   key={meal}
 >
@@ -180,7 +180,7 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
                ref={getDiv}
                className={`w-full h-fit flex flex-row gap-1.5 flex-wrap`}>
                 <button
-                  className='w-full flex cursor-pointer items-center gap-2 bg-linear-to-r from-indigo-500 to-indigo-300 p-3 shadow  rounded-2xl text-white'
+                  className='w-full flex cursor-pointer items-center gap-2 bg-linear-to-r from-blue-500 to-blue-300 p-3 shadow  rounded-2xl text-white'
                   onClick={() => AddADish(meal)}
                 >
                   Add a  new dish <BsPlusCircleFill className='-translate-y-0.5' />
@@ -188,7 +188,7 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
 
                 {/* عرض الوجبات المضافة */}
                 {mealPlan[meal][0].map((dish, idx) => (
-                  <div key={meal + '-' + idx} className='w-full p-3.5 bg-gray-100 rounded-lg text-md active:bg-indigo-100 active:text-indigo-600 cursor-pointer activeAnim'>
+                  <div key={meal + '-' + idx} className='w-full p-3.5 bg-gray-100 rounded-lg text-md active:bg-blue-100 active:text-blue-600 cursor-pointer activeAnim'>
                     {dish}
                   </div>
                 ))}
@@ -212,7 +212,7 @@ const ToggleWindow = (e: React.MouseEvent<HTMLDivElement>) => {
           </div>
         ))
       }
-  <button className='relative top-26 w-full  p-3 bg-linear-to-r from-indigo-500 to-indigo-300 text-white rounded-full text-lg font-light flex items-center justify-center gap-2 active:bg-indigo-700 activeAnim' onClick={Save}>
+  <button className='relative top-26 w-full  p-3 bg-linear-to-r from-blue-500 to-blue-300 text-white rounded-full text-lg font-light flex items-center justify-center gap-2 active:bg-blue-700 activeAnim' onClick={Save}>
        Save The Diet <BsSave2Fill />
         </button>
         {IsClicked && <AdditionPage Meal={localStorage.getItem('currentMeal') || ''} />}

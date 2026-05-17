@@ -19,13 +19,13 @@ const Settings = () => {
       
         <div className="w-full h-full flex flex-col gap-3 justify-around">
           <div className="flex justify-between w-full p-3.5  rounded-lg font-thin text-md cursor-pointer activeAnim">
-            Settings <div onClick={() => window.location.reload()} className="p-1.5 rounded-2xl  bg-gray-50"><FaXmark className="text-red-600" /></div>
+            Settings <div onClick={() => window.location.reload()} className="p-1.5 rounded-2xl  bg-gray-50"><FaXmark className="text-blue-600" /></div>
           </div>
-          <div className="flex justify-between w-full p-3.5 bg-gray-100 rounded-lg font-thin text-md active:bg-indigo-100 active:text-indigo-600 cursor-pointer activeAnim">
+          <div className="flex justify-between w-full p-3.5 bg-gray-100 rounded-lg font-thin text-md active:bg-sky-100 active:text-sky-600 cursor-pointer activeAnim">
             History <BsClockFill />
           </div>
 
-          <div onClick={SuringToResetADiet} className="flex justify-between w-full p-3.5 bg-gray-100 rounded-lg font-thin text-md active:bg-indigo-100 active:text-indigo-600 cursor-pointer activeAnim">
+          <div onClick={SuringToResetADiet} className="flex justify-between w-full p-3.5 bg-gray-100 rounded-lg font-thin text-md active:bg-sky-100 active:text-sky-600 cursor-pointer activeAnim">
             
             Reset Dite <RiResetRightFill />
            

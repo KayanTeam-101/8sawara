@@ -98,7 +98,7 @@ const FinalSection = () => {
       </div>
 
       <div className="flex items-center flex-col mt-6 sm:mt-10">
-        <h2 className="text-2xl sm:text-3xl text-indigo-400 font-extrabold mb-4 text-center">
+        <h2 className="text-2xl sm:text-3xl text-sky-400 font-extrabold mb-4 text-center">
           تمام! خلصنا
         </h2>
 

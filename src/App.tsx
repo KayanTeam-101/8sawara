@@ -34,7 +34,7 @@ useEffect(() => {
 
   if (isLoading) {
     return (
-      <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-b from-indigo-50 via-white to-white">
+      <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-b from-sky-50 via-white to-white">
         <p className="text-2xl font-bold text-gray-800">
           Loading...
         </p>

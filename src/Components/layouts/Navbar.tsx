@@ -13,7 +13,7 @@ const Navbar = () => {
     }
   }
   return (
-    <div className="navbar overflow-hidden fixed bottom-0 left-0 right-0 grid grid-cols-5 items-center h-16 backdrop-blur-[20px] bg-white/30 border-t  border-gray-200 text-2xl text-indigo-950">
+    <div className="navbar overflow-hidden fixed bottom-0 left-0 right-0 grid grid-cols-5 items-center h-16 backdrop-blur-[20px] bg-white/30 border-t  border-gray-200 text-2xl text-sky-950">
         <NavLink onClick={() => vebrate()} className="flex flex-col"  to="me/home">
           <GoHomeFill />
           <p className='text-[13px] mt-2'>الرئسية</p>

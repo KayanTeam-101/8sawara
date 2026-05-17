@@ -31,7 +31,7 @@ const Home = () => {
           </div>
 
         <div className="w-full rounded-2xl mb-2 p-5 shadow-sm bg-white flex flex-row gap-2">
-      <FaCookieBite className="text-2xl text-indigo-500 " />
+      <FaCookieBite className="text-2xl text-sky-500 " />
           <p className="font-light text-md show-first">{Advice}</p>
         </div>
 
@@ -39,7 +39,7 @@ const Home = () => {
 
       {!IsThere_A_Diet &&  <a href="/me/food">
          <div className="w-full rounded-2xl mb-2 p-5 shadow-sm bg-white flex flex-row gap-2 outline-swealing">
-      <FaBowlFood className="text-2xl text-indigo-500 " />
+      <FaBowlFood className="text-2xl text-sky-500 " />
           <p className="font-light text-md show-first">دعنا نصنع أفضل نظام غذائي!</p>
         </div>
        </a>}

@@ -8,7 +8,7 @@ type History = Record<string, { meals: DayMeals }>;
 const MEAL_ICONS: Record<string, React.ReactNode> = {
   breakfast: <FiCoffee className="text-amber-500" />,
   lunch: <FiSun className="text-orange-500" />,
-  dinner: <FiMoon className="text-indigo-500" />,
+  dinner: <FiMoon className="text-sky-500" />,
   default: <FiClock className="text-gray-500" />,
 };
 
@@ -55,9 +55,9 @@ const Page = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-white rounded-2xl shadow-md">
-              <FiCalendar className="text-2xl text-indigo-600" />
+              <FiCalendar className="text-2xl text-sky-600" />
             </div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-teal-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-sky-600 to-teal-600 bg-clip-text text-transparent">
               History
             </h1>
           </div>
@@ -96,8 +96,8 @@ const Page = () => {
                     className="w-full flex items-center justify-between p-5 text-right"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-indigo-50 rounded-xl">
-                        <FiCalendar className="text-xl text-indigo-600" />
+                      <div className="p-2 bg-sky-50 rounded-xl">
+                        <FiCalendar className="text-xl text-sky-600" />
                       </div>
                       <div className="text-start">
                         <h2 className="text-lg font-semibold text-gray-800">{date}</h2>
@@ -134,7 +134,7 @@ const Page = () => {
                                 key={idx}
                                 className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg shadow-sm text-gray-600"
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                                 {dish}
                                 <span className="mb-3 text-sm text-gray-400">
                                    {

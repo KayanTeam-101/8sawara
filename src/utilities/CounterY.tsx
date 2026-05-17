@@ -101,7 +101,7 @@ const CounterY = ({
       {/* center focus */}
       <div
         className="absolute left-0 w-full rounded-xl
-                   bg-indigo-100/40 pointer-events-none"
+                   bg-sky-100/40 pointer-events-none"
         style={{
           top: CONTAINER_HEIGHT / 2 - ITEM_HEIGHT / 2,
           height: ITEM_HEIGHT,

@@ -28,19 +28,19 @@ const Table = () => {
           
     // If this day is in the past of the challenge
     if (day < daysSinceStart) {
-      return "bg-indigo-400 opacity-40 text-white"; // Completed days
+      return "bg-linear-to-t from-blue-200 scale-90 opacity-60  show-third to-sky-400  text-white"; // Completed days
     } 
     // If this is today's challenge day
     else if (day === daysSinceStart) {
-      return "bg-indigo-500 shadow-md text-white"; // Current day
+      return "bg-linear-to-t from-sky-300 to-blue-400 shadow-md text-white"; // Current day
     }else{
       return " text-gray-500"; // Future days
     }
   }
 
   return (
-    <div className='relative flex items-center flex-col w-full min-h-14 p-2 bg-white rounded-2xl border-indigo-50'>
-      <div className='w-full h-10 flex items-center justify-between border-b-2 border-indigo-100 mb-2'>
+    <div className='relative flex items-center flex-col w-full min-h-14 p-2 bg-white rounded-2xl border-sky-50'>
+      <div className='w-full h-10 flex items-center justify-between border-b-2 border-sky-100 mb-2'>
         <div className='flex items-center'>
           <span className='font-black'>تقدمي</span>
         </div>
